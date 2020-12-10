@@ -20,9 +20,7 @@ This is for inventory 2.0 only
   
 add to inventry 2.0 config file:
 
-
---grave robbing
-
+	--grave robbing
 	   ["oldbuckle"] =
     {
         label = "old buckle",
