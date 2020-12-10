@@ -20,6 +20,7 @@ This is for inventory 2.0 only
   
 add to inventry 2.0 config file:
 
+
 --grave robbing
 	   ["oldbuckle"] =
     {
@@ -32,8 +33,6 @@ add to inventry 2.0 config file:
         limit = 64,
         imgsrc = "items/oldbuckle.png",
         type = "item_standard",
-
-
     },	    
 		["oldwatch"] =
     {
@@ -46,8 +45,6 @@ add to inventry 2.0 config file:
         limit = 64,
         imgsrc = "items/oldwatch.png",
         type = "item_standard",
-
-
     },	   
 		["goldring"] =
     {
@@ -60,8 +57,6 @@ add to inventry 2.0 config file:
         limit = 64,
         imgsrc = "items/goldring.png",
         type = "item_standard",
-
-
     },	   
 		["goldtooth"] =
     {
@@ -74,8 +69,6 @@ add to inventry 2.0 config file:
         limit = 64,
         imgsrc = "items/goldtooth.png",
         type = "item_standard",
-
-
     },	
 		["oldcoin"] =
     {
@@ -88,6 +81,4 @@ add to inventry 2.0 config file:
         limit = 64,
         imgsrc = "items/oldcoin.png",
         type = "item_standard",
-
-
     },
