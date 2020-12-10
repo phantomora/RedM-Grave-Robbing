@@ -1,29 +1,54 @@
-local items = { "oldbuckle", "oldwatch", "goldring", "goldtooth", "oldcoin" }
-
+data = {}
 TriggerEvent("redemrp_inventory:getData",function(call)
     data = call
 end)
 
-RegisterServerEvent("RegisterUsableItem:robbingkit")
-AddEventHandler("RegisterUsableItem:robbingkit", function(source)
-    TriggerClientEvent('GraveRobbing:TriggerRobbery', source)
+RegisterServerEvent('goldflake:sell')
+AddEventHandler('goldflake:sell', function()
+    local _source = source
+    TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
+        local count = data.checkItem(_source, "goldflake")
+        if count == nil then
+            TriggerClientEvent("redemrp_notification:start", _source, 'You dont have enough Gold', 10)
+        end
+        if count >= 10 then
+            print(count)
+            data.delItem(_source,"goldflake", 10)
+            TriggerClientEvent('sell:goldflake', _source)
+        else
+            TriggerClientEvent("redemrp_notification:start", _source, 'You dont have enough Gold', 10)
+        end   
+    end)
 end)
 
-RegisterNetEvent("GraveRobbing:Complete")
-AddEventHandler("GraveRobbing:Complete", function()
-	local _source = source
-    local r = math.random(1, 100)
+RegisterServerEvent('goldnugget:sell')
+AddEventHandler('goldnugget:sell', function()
+    local _source = source
+    TriggerEvent('redemrp:getPlayerFromId', _source, function(user)
+        local count = data.checkItem(_source, "goldnugget")
+        if count == nil then
+            TriggerClientEvent("redemrp_notification:start", _source, 'You dont have enough Gold', 1)
+        end
+        if count >= 1 then
+            print(count)
+            data.delItem(_source,"goldnugget", 1)
+            TriggerClientEvent('sell:goldnugget', _source)
+        else
+            TriggerClientEvent("redemrp_notification:start", _source, 'You dont have enough Gold', 1)
+        end   
+    end)
+end)
 
-    if r <= 25 then
-        TriggerEvent('redemrp:getPlayerFromId', source, function(user)
-			local r = math.random(1,5)
-
-			data.addItem(_source, items[r], 1)
+RegisterServerEvent('goldflake:paid')
+AddEventHandler('goldflake:paid', function(cash)
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        user.addMoney(7)
         end)
+end)
 
-        TriggerClientEvent("redemrp_notification:start", _source, "You've found something!", 2)
-    else
-
-        TriggerClientEvent("redemrp_notification:start", _source, "Nice try, partner.", 2)
-    end
+RegisterServerEvent('goldnugget:paid')
+AddEventHandler('goldnugget:paid', function(cash)
+    TriggerEvent('redemrp:getPlayerFromId', source, function(user)
+        user.addMoney(14)
+        end)
 end)
