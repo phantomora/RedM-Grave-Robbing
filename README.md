@@ -22,6 +22,7 @@ add to inventry 2.0 config file:
 
 
 --grave robbing
+
 	   ["oldbuckle"] =
     {
         label = "old buckle",
@@ -33,7 +34,9 @@ add to inventry 2.0 config file:
         limit = 64,
         imgsrc = "items/oldbuckle.png",
         type = "item_standard",
-    },	    
+    },	   
+    
+    
 		["oldwatch"] =
     {
         label = "old watch",
